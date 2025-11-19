@@ -5,24 +5,36 @@ async function main() {
   if (!apiKey) throw new Error("FAIM_API_KEY required");
 
   const client = new FaimClient(apiKey);
-  const x: number[][][] = [[[1], [2], [3], [4], [5]]];
+  const x: number[][][] = [[[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]]];
 
   console.log("Chronos2 - Quantiles (default)");
   let result = await client.forecastChronos2({
     x,
-    horizon: 10,
+    horizon: 3,
     output_type: "quantiles",
   });
-  console.log(result.success ? "✓ Success" : `✗ ${result.error.error_code}: ${result.error.message}`);
+  if (result.success) {
+    console.log("✓ Success");
+    console.log("Forecasted quantiles:");
+    console.log(JSON.stringify(result.data.outputs.quantiles, null, 2));
+  } else {
+    console.log(`✗ ${result.error.error_code}: ${result.error.message}`);
+  }
 
-  console.log("\nChronos2 - Quantiles (custom: 0.1, 0.5, 0.9)");
+  console.log("\n\nChronos2 - Quantiles (custom: 0.1, 0.5, 0.9)");
   result = await client.forecastChronos2({
     x,
-    horizon: 10,
+    horizon: 3,
     output_type: "quantiles",
     quantiles: [0.1, 0.5, 0.9],
   });
-  console.log(result.success ? "✓ Success" : `✗ ${result.error.error_code}: ${result.error.message}`);
+  if (result.success) {
+    console.log("✓ Success");
+    console.log("Forecasted quantiles:");
+    console.log(JSON.stringify(result.data.outputs.quantiles, null, 2));
+  } else {
+    console.log(`✗ ${result.error.error_code}: ${result.error.message}`);
+  }
 }
 
 main().catch(console.error);

@@ -134,7 +134,7 @@ describe.skipIf(!shouldRun)("Integration Tests - Real API Calls", () => {
       const invalidClient = new FaimClient("sk-invalid-key-12345", { baseUrl: BASE_URL });
       const x = [[[1], [2], [3], [4], [5]]];
 
-      const result = await invalidClient.forecastFlowState({
+      const result = await invalidClient.forecastChronos2({
         x,
         horizon: 5,
         output_type: "point",
@@ -150,7 +150,7 @@ describe.skipIf(!shouldRun)("Integration Tests - Real API Calls", () => {
     it("should handle invalid horizon (validation error)", async () => {
       const x = [[[1], [2], [3]]];
 
-      const result = await client.forecastFlowState({
+      const result = await client.forecastChronos2({
         x,
         horizon: 0, // Invalid: must be > 0
         output_type: "point",
@@ -165,7 +165,7 @@ describe.skipIf(!shouldRun)("Integration Tests - Real API Calls", () => {
     it("should handle invalid output_type", async () => {
       const x = [[[1], [2], [3], [4], [5]]];
 
-      const result = await client.forecastFlowState({
+      const result = await client.forecastChronos2({
         x,
         horizon: 5,
         output_type: "invalid" as any, // Type checker would catch this
@@ -182,7 +182,7 @@ describe.skipIf(!shouldRun)("Integration Tests - Real API Calls", () => {
     it("should return correct metadata structure", async () => {
       const x = [[[1], [2], [3], [4], [5]]];
 
-      const result = await client.forecastFlowState({
+      const result = await client.forecastChronos2({
         x,
         horizon: 10,
         output_type: "point",
