@@ -1,13 +1,13 @@
 # @faim-group/sdk-forecasting
 
-Modern zero-shot time-series forecasting with advanced neural networks. Get accurate predictions without historical tuning or complex setup.
+Zero-shot time-series forecasting in JavaScript using state-of-the-art foundation models. Get accurate predictions without training or complex setup.
 
 **📦 [View on npm](https://www.npmjs.com/package/@faim-group/sdk-forecasting)** | **📚 [GitHub](https://github.com/S-FM/faim-js-client)** | **🌐 [Website](https://faim.it.com/)**
 
 ## Features
 
 - **Zero-Shot Forecasting** - Works out-of-the-box without model training
-- **Advanced Models** - Chronos2 and TiRex for different scenarios
+- **Advanced Models** - Chronos2 from AWS and TiRex from NXAI 
 - **Point & Quantile Forecasts** - Get predictions and uncertainty estimates
 - **Type-Safe** - Full TypeScript support with strict type checking
 - **Automatic Retries** - Built-in exponential backoff for reliability
@@ -25,15 +25,6 @@ pnpm add @faim-group/sdk-forecasting
 
 # yarn
 yarn add @faim-group/sdk-forecasting
-```
-
-### Version
-
-Latest version: **0.1.0**
-
-```bash
-# Install specific version
-npm install @faim-group/sdk-forecasting@0.1.0
 ```
 
 ## Quick Start
@@ -222,9 +213,7 @@ pnpm tsx examples/air_passengers.ts
 ```
 
 The Air Passengers example demonstrates:
-- Real-world dataset download from GitHub
-- Point forecasting with both Chronos2 and TiRex models
-- Probabilistic forecasting with confidence intervals (90% bounds)
+- Point and probabilistic forecasting with both Chronos2 and TiRex models
 - Metric calculation (MAE, MSE)
 - Formatted table output with predictions and confidence intervals
 
