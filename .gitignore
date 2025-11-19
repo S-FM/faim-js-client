@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.turbo/
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.pnpm-debug.log*
+coverage/
+CLIENT_API_GUIDE.md
+openapi.json

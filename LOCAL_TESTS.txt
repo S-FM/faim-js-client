@@ -1,0 +1,26 @@
+LOCAL TEST COMMANDS
+===================
+
+Unit tests (no API key needed):
+  pnpm test:unit
+
+Integration tests (requires .env.local with FAIM_API_KEY):
+  pnpm test:integration
+
+All tests:
+  pnpm test
+
+With build and typecheck:
+  pnpm build && pnpm typecheck && pnpm test:unit
+
+Watch mode:
+  pnpm test -- --watch
+
+Setup for integration tests:
+  1. cp .env.example .env.local
+  2. echo "FAIM_API_KEY=sk-your-key" >> .env.local
+  3. pnpm test:integration
+
+GitHub Actions (Updated):
+  - Unit tests: Run on Node 18, 20, 22, 24
+  - Integration tests: Run on Node 18, 20, 22, 24 (main branch only with API key secret)

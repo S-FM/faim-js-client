@@ -1,0 +1,52 @@
+{
+  "name": "@faim-group/sdk-forecasting",
+  "version": "1.0.0",
+  "description": "Modern zero-shot time-series forecasting with advanced neural networks",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit --strict",
+    "test": "vitest",
+    "test:unit": "vitest run --exclude 'tests/integration.test.ts'",
+    "test:integration": "vitest run tests/integration.test.ts",
+    "prepack": "pnpm build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "dotenv": "^16.3.1",
+    "tsup": "^8.0.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
+  },
+  "keywords": [
+    "faim",
+    "forecasting",
+    "time-series",
+    "sdk",
+    "chronos2",
+    "tirex",
+    "neural-networks",
+    "zero-shot"
+  ],
+  "author": "FAIM Team",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/faim-js-client"
+  }
+}
