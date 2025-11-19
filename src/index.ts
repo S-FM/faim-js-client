@@ -16,3 +16,6 @@ export type {
 } from "./types";
 
 export { FaimError, isRetryable, isAuthError, isValidationError, isTimeoutError, isBillingError, isInferenceError } from "./errors";
+
+// Utility functions
+export { getShape, expandTo3D, squeeze, MAE, MSE, validateInput3D } from "./utils";

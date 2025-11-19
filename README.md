@@ -13,10 +13,26 @@ Modern zero-shot time-series forecasting with advanced neural networks. Get accu
 
 ## Installation
 
+Install the package using your preferred package manager:
+
 ```bash
+# npm
 npm install @faim-group/sdk-forecasting
+
+# pnpm
 pnpm add @faim-group/sdk-forecasting
+
+# yarn
 yarn add @faim-group/sdk-forecasting
+```
+
+### Version
+
+Latest version: **0.1.0**
+
+```bash
+# Install specific version
+npm install @faim-group/sdk-forecasting@0.1.0
 ```
 
 ## Quick Start
@@ -145,15 +161,71 @@ const client = new FaimClient(apiKey, {
 
 ## Examples
 
+### Using Examples from npm Package
+
+The best way to learn how to use the SDK is by looking at the examples. You can either:
+
+**Option 1: Install the npm package and run examples locally**
+
 ```bash
-# Point forecasts
+# Install the package
+npm install @faim-group/sdk-forecasting
+
+# Clone the repository to access examples
+git clone https://github.com/S-FM/faim-js-client
+cd faim-js-client
+
+# Set your API key
+export FAIM_API_KEY="your_api_key_here"
+
+# Run an example
+pnpm install
+pnpm tsx examples/basic_forecast/chronos2.ts
+```
+
+**Option 2: View examples in the repository**
+
+Visit the [GitHub repository](https://github.com/S-FM/faim-js-client) to browse the examples without cloning.
+
+### Running Example Scripts Locally
+
+To run example scripts from this repository, use the `pnpm tsx` command:
+
+```bash
+pnpm tsx examples/<filename>.ts
+```
+
+Make sure you have `FAIM_API_KEY` set as an environment variable:
+
+```bash
+export FAIM_API_KEY="your_api_key_here"
+```
+
+### Available Examples
+
+**Basic Point Forecasts:**
+```bash
 pnpm tsx examples/basic_forecast/chronos2.ts
 pnpm tsx examples/basic_forecast/tirex.ts
+```
 
-# Quantile forecasts
+**Quantile Forecasts:**
+```bash
 pnpm tsx examples/quantiles_forecast/chronos2.ts
 pnpm tsx examples/quantiles_forecast/tirex.ts
 ```
+
+**Comprehensive Example (Air Passengers Dataset):**
+```bash
+pnpm tsx examples/air_passengers.ts
+```
+
+The Air Passengers example demonstrates:
+- Real-world dataset download from GitHub
+- Point forecasting with both Chronos2 and TiRex models
+- Probabilistic forecasting with confidence intervals (90% bounds)
+- Metric calculation (MAE, MSE)
+- Formatted table output with predictions and confidence intervals
 
 ## License
 

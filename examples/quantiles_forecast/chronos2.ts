@@ -1,11 +1,18 @@
-import { FaimClient } from "../../src/index";
+import { FaimClient, expandTo3D, squeeze } from "@faim-group/sdk-forecasting";
 
 async function main() {
   const apiKey = process.env.FAIM_API_KEY;
   if (!apiKey) throw new Error("FAIM_API_KEY required");
 
   const client = new FaimClient(apiKey);
-  const x: number[][][] = [[[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]]];
+
+  // Create 1D input array (1 to 50)
+  const timeSeries1D = Array.from({ length: 50 }, (_, i) => i + 1);
+  console.log("Input 1D time series (1-50):", timeSeries1D);
+
+  // Transform to 3D format required by API
+  const x = expandTo3D(timeSeries1D);
+  console.log("Expanded to 3D shape:", `[${x.length}, ${x[0]?.length}, ${x[0]?.[0]?.length}]\n`);
 
   console.log("Chronos2 - Quantiles (default)");
   let result = await client.forecastChronos2({
@@ -15,8 +22,17 @@ async function main() {
   });
   if (result.success) {
     console.log("✓ Success");
-    console.log("Forecasted quantiles:");
-    console.log(JSON.stringify(result.data.outputs.quantiles, null, 2));
+
+    const outputs = result.data.outputs as { quantiles?: number[][][][] };
+    if (outputs.quantiles) {
+      console.log("\nRaw quantiles output (4D):");
+      console.log(JSON.stringify(outputs.quantiles, null, 2));
+
+      // Squeeze the output to remove singleton dimensions
+      const squeezedQuantiles = squeeze(outputs.quantiles);
+      console.log("\nSqueezed quantiles:");
+      console.log(JSON.stringify(squeezedQuantiles, null, 2));
+    }
   } else {
     console.log(`✗ ${result.error.error_code}: ${result.error.message}`);
   }
@@ -30,8 +46,17 @@ async function main() {
   });
   if (result.success) {
     console.log("✓ Success");
-    console.log("Forecasted quantiles:");
-    console.log(JSON.stringify(result.data.outputs.quantiles, null, 2));
+
+    const outputs = result.data.outputs as { quantiles?: number[][][][] };
+    if (outputs.quantiles) {
+      console.log("\nRaw quantiles output (4D):");
+      console.log(JSON.stringify(outputs.quantiles, null, 2));
+
+      // Squeeze the output to remove singleton dimensions
+      const squeezedQuantiles = squeeze(outputs.quantiles);
+      console.log("\nSqueezed quantiles:");
+      console.log(JSON.stringify(squeezedQuantiles, null, 2));
+    }
   } else {
     console.log(`✗ ${result.error.error_code}: ${result.error.message}`);
   }
