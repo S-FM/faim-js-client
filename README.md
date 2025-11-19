@@ -220,7 +220,3 @@ The Air Passengers example demonstrates:
 ## License
 
 MIT
-
-## Support
-
-For detailed API reference, see `CLIENT_API_GUIDE.md`.
