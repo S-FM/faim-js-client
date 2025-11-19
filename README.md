@@ -2,13 +2,14 @@
 
 Modern zero-shot time-series forecasting with advanced neural networks. Get accurate predictions without historical tuning or complex setup.
 
+**📦 [View on npm](https://www.npmjs.com/package/@faim-group/sdk-forecasting)** | **📚 [GitHub](https://github.com/S-FM/faim-js-client)** | **🌐 [Website](https://faim.it.com/)**
+
 ## Features
 
 - **Zero-Shot Forecasting** - Works out-of-the-box without model training
 - **Advanced Models** - Chronos2 and TiRex for different scenarios
 - **Point & Quantile Forecasts** - Get predictions and uncertainty estimates
 - **Type-Safe** - Full TypeScript support with strict type checking
-- **Production-Ready** - Zero external dependencies, optimized for performance
 - **Automatic Retries** - Built-in exponential backoff for reliability
 
 ## Installation
